@@ -20,4 +20,9 @@ async def on_message(message):
         opinion = await generate_opinion(message.content[8:])
         await message.channel.send(opinion)
 
+    elif message.content.startswith("!code"):
+        code = await generate_code(message.content[6:])
+        await message.channel.send(code)
+
+
 client.run(config.DISCORD_TOKEN)
