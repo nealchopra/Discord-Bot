@@ -21,6 +21,13 @@ async def generate_code(language, message):
     )
     return response.choices[0].text
 
+async def translate_text(text, from_language, to_language):
+    response = openai.Completion.create(
+        engine="text-davinci-002",
+        prompt=f"Translate this from {from_language} to {to_language}: {text}"
+    )
+    return response.choices[0].text
+
 @client.event
 async def on_message(message):
     try:
