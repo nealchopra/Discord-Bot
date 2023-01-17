@@ -25,7 +25,7 @@ async def generate_code(language, message):
 async def on_message(message):
     try:
         if message.content == "!help":
-            help_message = "Available commands: !opinion, !code <language> <prompt>, !help"
+            help_message = "Available commands: !opinion, !code <language> <prompt>, !translate <text> <from_language> <to_language> ,!help"
             await message.channel.send(help_message)
         elif message.content.startswith("!opinion"):
             opinion = await generate_opinion(message.content[8:])
@@ -34,9 +34,14 @@ async def on_message(message):
             command, language, prompt = message.content.split(" ", 2)
             code = await generate_code(language, prompt)
             await message.channel.send(code)
+        elif message.content.startswith("!translate"):
+            command, text, from_language, to_language = message.content.split(" ", 3)
+            translation = await translate_text(text, from_language, to_language)
+            await message.channel.send(translation)
     except Exception as e:
         await message.channel.send("Sorry, something went wrong. Please try again later.")
         print(e)
+
 
 
 client.run(config.DISCORD_TOKEN)
