@@ -1,10 +1,20 @@
 import openai
 import discord
 import config
+import requests
 
 client = discord.Client()
 
 openai.api_key = config.OPENAI_API_KEY
+
+#!weather
+async def get_weather(city):
+    api_key = "OPENWEATHERMAPS_API_KEY"
+    url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}"
+    response = requests.get(url)
+    data = response.json()
+    temperature = data["main"]["temp"]
+    return f"The temperature in {city} is {temperature} degrees."
 
 #!math
 async def calculate_math(message):
@@ -46,14 +56,22 @@ async def make_concise(text):
     )
     return response.choices[0].text
 
+#functions –– !help, !weather, !math, !opinion. !code, !translate, !concise
 @client.event
 async def on_message(message):
     try:
         #!help
         if message.content == "!help":
-            help_message = "Available commands: !opinion, !code <language> <prompt>, !translate <text> <from_language> <to_language> ,!help"
+            help_message = "Available commands: !math, !opinion, !code <language> <prompt>, !translate <text> <from_language> <to_language>, !concise <text>, !weather <city>, !help"
             await message.channel.send(help_message)
-        
+
+
+        #!weather
+        elif message.content.startswith("!weather"):
+            city = message.content[8:]
+            weather = await get_weather(city)
+            await message.channel.send(weather)
+
         #!math
         elif message.content.startswith("!math"):
             command, prompt = message.content.split(" ", 1)

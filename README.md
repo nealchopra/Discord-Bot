@@ -3,6 +3,7 @@ Meet Gorilla Guru, your personal assistant bot. Get insightful and thought-provo
 
 #Instructions for use
 !help –– type !help see all possible commands
+!weather –– type !weather followed by any city to get the weather for that city
 !math –– type !math followed by any prompt to get the answer to your problem
 !opinion –– type !opinion followed by any prompt to get an opinion on a topic
 !code –– type !code and the language you'd like your program to be created in
