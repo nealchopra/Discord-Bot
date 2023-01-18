@@ -9,7 +9,7 @@ openai.api_key = config.OPENAI_API_KEY
 
 #!weather
 async def get_weather(city):
-    api_key = "OPENWEATHERMAPS_API_KEY"
+    api_key = config.OPENWEATHERMAPS_API_KEY
     url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}"
     response = requests.get(url)
     data = response.json()
