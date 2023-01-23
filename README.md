@@ -14,4 +14,6 @@ Meet Gorilla Guru, your personal assistant bot. Get insightful and thought-provo
 
 !translate –– type !translate followed by a word/phrase you'd like translated, then the language you want to translate to
 
-!concise –– type !concise followed by a prompt (can range in length) to make your writing more concise
+!concise –– type !concise followed by a prompt (can range in length) to make your message more concise
+
+!shakespeare –– type !shakespeare followed by a prompt (can range in length) to make your message sound like it was written by Shakespeare

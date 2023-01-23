@@ -56,6 +56,15 @@ async def make_concise(text):
     )
     return response.choices[0].text
 
+#!shakespeare
+async def make_shakespeare(text):
+    response = openai.Completion.create(
+        engine="text-davinci-002",
+        prompt=f"Make this sound like Shakespeare: {text}"
+    )
+    return response.choices[0].text
+
+
 #functions –– !help, !weather, !math, !opinion. !code, !translate, !concise
 @client.event
 async def on_message(message):
@@ -108,6 +117,16 @@ async def on_message(message):
             )
             concise = response.choices[0].text
             await message.channel.send(concise)
+
+        #!shakespeare
+        elif message.content.startswith("!shakespeare"):
+            command, text = message.content.split(" ", 1)
+            response = openai.Completion.create(
+                engine="text-davinci-002",
+                prompt=f"Make this sound like Shakespeare: {text}"
+            )
+            shakespeare = response.choices[0].text
+            await message.channel.send(shakespeare)
 
     except Exception as e:
         await message.channel.send("Sorry, something went wrong. Please try again later.")
