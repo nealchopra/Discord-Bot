@@ -65,7 +65,7 @@ async def make_shakespeare(text):
     return response.choices[0].text
 
 
-#functions –– !help, !weather, !math, !opinion. !code, !translate, !concise
+#functions –– !help, !weather, !math, !opinion. !code, !translate, !concise, !shakespeare
 @client.event
 async def on_message(message):
     try:
