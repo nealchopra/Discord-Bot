@@ -1,5 +1,9 @@
 # Description
-Meet Gorilla Guru, your personal assistant bot. Get insightful and thought-provoking opinions on any topic with the power of OpenAI. Simply type the commands listed below followed by the topic on any Discord channel and Gorilla Guru will generate a response for you in no time. Perfect for stimulating conversation and seeking new perspectives.
+This AI-based chatbot is designed to work on the messaging platform Discord. It has been programmed to respond to various commands, such as "!weather", "!math", "!opinion", "!code", "!translate", "!concise", "!summarize", "!shakespeare", and "!image".
+
+The bot uses the OpenAI API. For example, the "!math" command uses the OpenAI's Davinci engine to calculate the math expression provided in the message. The "!opinion" command generates an opinion on a given topic, while the "!code" command generates code in a specified programming language for a given prompt.
+
+The bot's purpose is to provide users with quick and easy access to various functionalities and services, without having to leave the Discord platform.
 
 # Instructions for use
 !help –– type !help see all possible commands
