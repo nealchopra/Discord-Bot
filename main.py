@@ -57,6 +57,14 @@ async def make_concise(text):
     )
     return response.choices[0].text
 
+#!summarize
+async def summarize_text(text):
+    response = openai.Completion.create(
+        engine="text-davinci-002",
+        prompt=f"Summarize this: {text}"
+    )
+    return response.choices[0].text
+
 #!shakespeare
 async def make_shakespeare(text):
     response = openai.Completion.create(
@@ -77,7 +85,7 @@ async def on_message(message):
     try:
         #!help
         if message.content == "!help":
-            help_message = "Available commands: !math, !opinion, !code <language> <prompt>, !translate <text> <from_language> <to_language>, !concise <text>, !weather <city>, !help"
+            help_message = "Available commands: !math, !opinion, !code <language> <prompt>, !translate <text> <from_language> <to_language>, !concise <text>, !summarize <text> !weather <city>, !help"
             await message.channel.send(help_message)
 
 
@@ -123,6 +131,16 @@ async def on_message(message):
             )
             concise = response.choices[0].text
             await message.channel.send(concise)
+        
+        #!summarize
+        elif message.content.startswith("!summarize"):
+            command, text = message.content.split(" ", 1)
+            response = openai.Completion.create(
+                engine="text-davinci-002",
+                prompt=f"Summarize this: {text}"
+            )
+            summary = response.choices[0].text
+            await message.channel.send(summary)
 
         #!shakespeare
         elif message.content.startswith("!shakespeare"):
