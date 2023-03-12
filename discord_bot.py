@@ -2,6 +2,7 @@ import openai
 import discord
 import config
 import requests
+import image_recognition
 
 client = discord.Client()
 
@@ -63,6 +64,11 @@ async def make_shakespeare(text):
         prompt=f"Make this sound like Shakespeare: {text}"
     )
     return response.choices[0].text
+
+#!image
+async def generate_image(message):
+    image = await image_recognition.generate_image(message)
+    return image
 
 
 #functions –– !help, !weather, !math, !opinion. !code, !translate, !concise, !shakespeare
@@ -127,6 +133,12 @@ async def on_message(message):
             )
             shakespeare = response.choices[0].text
             await message.channel.send(shakespeare)
+        
+        #!image
+        elif message.content.startswith("!image"):
+            command, prompt = message.content.split(" ", 1)
+            image = await generate_image(prompt)
+            await message.channel.send(file=image)
 
     except Exception as e:
         await message.channel.send("Sorry, something went wrong. Please try again later.")
