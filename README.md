@@ -1,9 +1,11 @@
 # Description
-This AI-based chatbot is designed to work on the messaging platform Discord. It has been programmed to respond to various commands, such as "!weather", "!math", "!opinion", "!code", "!translate", "!concise", "!summarize", "!shakespeare", and "!image".
+This AI-based chatbot integrates Language Modeling and Image Recognition techniques to operate on the messaging platform Discord.
 
-The bot uses the OpenAI API. For example, the "!math" command uses the OpenAI's Davinci engine to calculate the math expression provided in the message. The "!opinion" command generates an opinion on a given topic, while the "!code" command generates code in a specified programming language for a given prompt.
+The bot leverages the OpenAI API, utilizing its advanced language models and image recognition algorithms to perform tasks such as weather forecasting, math calculation, generating opinions, translating text, summarizing long texts, and even producing Shakespearean text on user request.
 
-The bot's purpose is to provide users with quick and easy access to various functionalities and services, without having to leave the Discord platform.
+For instance, when users request math calculation through the "!math" command, the bot employs OpenAI's Davinci engine, a powerful language model, to solve the math expressions provided in the message. Similarly, the "!opinion" command applies a deep learning model to generate opinions on a given topic, while the "!code" command utilizes machine learning algorithms to produce code in a specified programming language based on a provided prompt.
+
+The chatbot's primary objective is to provide a seamless experience for Discord users by providing quick and convenient access to various functionalities and services within the messaging platform.
 
 # Instructions for use
 !help –– type !help see all possible commands
